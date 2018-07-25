@@ -1,3 +1,5 @@
+package ARC;
+
 /*
  File: Stemmer.java
 
