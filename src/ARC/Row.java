@@ -9,13 +9,13 @@ public class Row {
 	private int rating;
 	private String title;
 	private String text;
-	private int infoGiv;
-	private int infoSeek;
-	private int featRequest;
-	private int hasBug;
-	private int sentScore;
-	
-	public Row(int _reviewId, String _appName, String _versionNum, String _userName, String _date, int _rating, String _title, String _text, int _infoGiv,int _infoSeek,   int _featRequest,int _hasBug, int _sentScore) {
+	private String infoGiv;
+	private String infoSeek;
+	private String featRequest;
+	private String hasBug;
+	private String sentScore;
+
+	public Row(int _reviewId, String _appName, String _versionNum, String _userName, String _date, int _rating, String _title, String _text, String _infoGiv, String _infoSeek, String _featRequest, String _hasBug, String _sentScore) {
 		reviewId = _reviewId;
 		appName = _appName;
 		versionNum = _versionNum;
@@ -38,5 +38,23 @@ public class Row {
 	}
 	public String versionNum() {
 		return versionNum;
+	}
+	public String getText() {
+		return text;
+	}
+	public String getInfoGiv() {
+		return infoGiv;
+	}
+	public String getInfoSeek() {
+		return infoSeek;
+	}
+	public String getFeatRequest() {
+		return featRequest;
+	}
+	public String getHasBug() {
+		return hasBug;
+	}
+	public String getSentScore() {
+		return sentScore;
 	}
 }

@@ -9,16 +9,14 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class Parser {
-
+    
     String[] myDocs;
     public static ArrayList<String> termList;
     private static String[] stopList ;
     public static ArrayList<Integer> termFrequency;
     public ArrayList<ArrayList<Integer>> docLists;
 
-
     public Parser(){
-
         termList = new ArrayList<String>();
         termFrequency = new ArrayList<Integer>();
 
@@ -133,6 +131,7 @@ public class Parser {
     public static void main(String[] args) {
         Data data = new Data();
         data.init();
+        data.showSomeData();
         String content= data.content;
         //System.out.println(content);
         Parser p = new Parser();
