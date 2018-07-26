@@ -10,24 +10,41 @@ import java.util.Collections;
 
 public class Parser {
     
-    String[] myDocs;
-    public static ArrayList<String> termList;
-    private static String[] stopList ;
-    public static ArrayList<Integer> termFrequency;
+    public String[] myDocs;
+    public ArrayList<String> termList;
+    private String[] stopList ;
+    public ArrayList<Integer> termFrequency;
     public ArrayList<ArrayList<Integer>> docLists;
+    public Data data;
 
     public Parser(){
+    	data = new Data();
+        data.init();
+        data.showSomeData();
+        String content= data.content;
+        //System.out.println(content);
+        
         termList = new ArrayList<String>();
         termFrequency = new ArrayList<Integer>();
-
         //load stopwords and sort
         //File test = new File("index.html");
         //System.out.println(test.listFiles());
         stopList = loadStopwords("src/ARC/input/stopwords.txt");
         Arrays.sort(stopList);
+        
+        ArrayList<String> terms = tokenization(content);
+        System.out.println("No.of terms: "+ Integer.toString(terms.size()));
+        sortTerms(terms);
+
+        // Begin clustering
+        Clustering c = new Clustering(2);
+        System.out.println("\n" + data.getDocs().length);
+		c.preprocess(data.getDocs());
+		System.out.println(c);
+		// c.cluster();
     }
 
-    public static String[] loadStopwords(String stopwordsFile){
+    public String[] loadStopwords(String stopwordsFile){
 
         String[] stopWords = null;
         String alllines= "";
@@ -46,7 +63,7 @@ public class Parser {
     }
 
 
-    public static int searchStopword(String key)
+    public int searchStopword(String key)
     {
 		/*
 		  Search if key is present in the stopwordList using binarySearch
@@ -66,14 +83,14 @@ public class Parser {
         return -1;
     }
 
-    public static String stemming(String token){
+    public String stemming(String token){
         Stemmer st = new Stemmer();
         st.add(token.toCharArray(), token.length());
         st.stem();
         return st.toString();
     }
 
-    public static void sortTerms(ArrayList<String> terms) {
+    public void sortTerms(ArrayList<String> terms) {
         ArrayList<Node> listNode = new ArrayList<>();
 
         for (String term : terms){
@@ -93,7 +110,7 @@ public class Parser {
     }
 
 
-    public static ArrayList<String> tokenization(String review){
+    public ArrayList<String> tokenization(String review){
 
         /*
 		   Tokenization: Creates an array of tokens
@@ -129,16 +146,7 @@ public class Parser {
 
 
     public static void main(String[] args) {
-        Data data = new Data();
-        data.init();
-        data.showSomeData();
-        String content= data.content;
-        //System.out.println(content);
-        Parser p = new Parser();
-        ArrayList<String> terms = tokenization(content);
-        System.out.println("No.of terms: "+ Integer.toString(terms.size()));
-        sortTerms(terms);
-
+    	Parser p = new Parser(); 
     }
 
 }

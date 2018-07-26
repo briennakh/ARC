@@ -18,7 +18,7 @@ public class Data {
 
     //replace with your corresponding credentials
     static final String USER = "root";
-    static final String PASS = "neirage";
+    static final String PASS = "password";
 
     public static ArrayList<Row> dataRows = new ArrayList<Row>();
     public String content="";
@@ -225,6 +225,14 @@ public class Data {
        }
        System.out.println("Duplicates: " + duplicates);
        System.out.println("Empty documents: " + emptyDocs);
+    }
+    
+    public String[] getDocs() {
+    	String[] docs = new String[dataRows.size()];
+    	for (int i = 0; i < dataRows.size(); i++) {
+    		docs[i] = dataRows.get(i).getText();
+    	}
+    	return docs;
     }
 
 }
