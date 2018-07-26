@@ -1,4 +1,7 @@
 package ARC;
+/**
+ * Mounika Alluri : June 2018
+ */
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -9,7 +12,7 @@ import java.util.*;
 public class Data {
 
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/appReviews?useUnicode=true&useJDB..." +
+    static final String DB_URL = "jdbc:mysql://localhost:3306/app_reviews?useUnicode=true&useJDB..." +
             "CCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false"; //replace this with your db
 
     //replace with your corresponding credentials

@@ -1,6 +1,7 @@
 package ARC;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,7 +23,9 @@ public class Parser {
         termFrequency = new ArrayList<Integer>();
 
         //load stopwords and sort
-        stopList = loadStopwords("stopwords.txt");
+        //File test = new File("index.html");
+        //System.out.println(test.listFiles());
+        stopList = loadStopwords("src/ARC/input/stopwords.txt");
         Arrays.sort(stopList);
     }
 
